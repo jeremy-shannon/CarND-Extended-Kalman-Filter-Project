@@ -28,17 +28,17 @@ def get_last_row(csv_filename):
 def telemetry(sid, data):
 	if data:
 
-		output = check_output([model,"data_in.txt","data_out.txt"])
+		output = check_output([model,"./data/sample-laser-radar-measurement-data-1.txt","data_out.txt"])
 
 		lastrow = get_last_row("data_out.txt")
 		
 		x_markers = lastrow[0]
 		y_markers = lastrow[1]
 
-		#print("Sending: "+x_markers+" , "+y_markers)
+    #print("Sending: "+x_markers+" , "+y_markers)
 
 		output = output.decode("utf-8") 
-		#print(output)
+    #print(output)
 		outputVals = output.split('\n')
 		
 		if outputVals[0].find("RMSE") != -1:
